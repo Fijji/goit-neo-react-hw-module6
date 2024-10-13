@@ -1,10 +1,14 @@
-import styles from "./Contact.module.css";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhone } from "@fortawesome/free-solid-svg-icons";
+import styles from "./Contact.module.css";
 
-const Contact = ({ id, name, number, onDelete }) => {
+const Contact = ({ id, name, number }) => {
+  const dispatch = useDispatch();
+
   return (
-    <li className={styles.contactItem}>
+    <div className={styles.contactItem}>
       <div className={styles.contactInfo}>
         <div className={styles.contactDetail}>
           <FontAwesomeIcon icon={faUser} className={styles.icon} />
@@ -15,10 +19,13 @@ const Contact = ({ id, name, number, onDelete }) => {
           <span className={styles.number}>{number}</span>
         </div>
       </div>
-      <button className={styles.deleteButton} onClick={() => onDelete(id)}>
+      <button
+        className={styles.deleteButton}
+        onClick={() => dispatch(deleteContact(id))}
+      >
         Delete
       </button>
-    </li>
+    </div>
   );
 };
 
