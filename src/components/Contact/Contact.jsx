@@ -2,7 +2,6 @@ import styles from "./Contact.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhone } from "@fortawesome/free-solid-svg-icons";
 
-// eslint-disable-next-line react/prop-types
 const Contact = ({ id, name, number, onDelete }) => {
   return (
     <li className={styles.contactItem}>

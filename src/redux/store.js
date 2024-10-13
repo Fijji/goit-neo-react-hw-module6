@@ -6,18 +6,18 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 
 const contactsPersistConfig = {
-    key: "contacts",
-    storage,
-    whitelist: ["items"], // only persist the items array
+  key: "contacts",
+  storage,
+  whitelist: ["items"],
 };
 
 const rootReducer = combineReducers({
-    contacts: persistReducer(contactsPersistConfig, contactsReducer),
-    filters: filtersReducer,
+  contacts: persistReducer(contactsPersistConfig, contactsReducer),
+  filters: filtersReducer,
 });
 
 export const store = configureStore({
-    reducer: rootReducer,
+  reducer: rootReducer,
 });
 
 export const persistor = persistStore(store);
